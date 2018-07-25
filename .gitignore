@@ -1,0 +1,4 @@
+# ignore folder node_modules and json-files, gulpfile.js
+/node_modules/
+*.json
+*.js
