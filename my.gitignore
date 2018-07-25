@@ -1,0 +1,4 @@
+# игнорирование папки node_modules, gulpfile.js, все .json файлы
+ /node_modules
+ *.json
+ gulpfile.js
