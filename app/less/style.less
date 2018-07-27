@@ -1,0 +1,395 @@
+@import 'normalize.less';
+@import 'mixins.less';
+
+*, *::before, *::after, figure{
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	box-sizing: border-box;
+	transition: .5s ease;
+}
+
+
+body {
+	font-family: sans-serif;
+	.flex-cont(row,nowrap, flex-start, flex-start);
+	height: 3000px;
+}
+
+.header {
+	width: 20%;
+	height: 100%;
+	.flex-cont(column, nowrap, flex-start, center);
+	padding: 2rem 0;
+	color: white;
+	background-image: linear-gradient(#533617, #533617) ,url('../img/текстура-дерева.png');
+	background-blend-mode: multiply;
+	background-size: auto;
+	background-repeat: repeat-y;
+
+	&__logo-wrapper {
+		
+		&__icon {
+			display: block;
+			width: 50%;
+			margin: 0 auto;
+			height: auto;
+
+		} /* End __icon */
+
+		&__title {
+			text-transform: uppercase;
+			font-size: 1rem;
+			text-align: center;
+			margin-top: 1rem;
+			line-height: 1.6rem;
+
+		} /* End __title */
+
+	} /* End __logo-wrapper */
+
+	&__menu {
+		list-style: none;
+		margin: 108px 0;
+		&__item {
+			font-size: 1.1rem;
+			text-transform: uppercase;
+			
+			&:not(:first-of-type) {
+				margin-top: 2rem;
+			}
+		} /* End __item */
+
+	} /* End __menu */
+
+	&__contacts-cont {
+		font-size: 1rem;
+		margin-top: 20%;
+
+		&__tel, &__date {
+			display: block;
+		}
+
+		&__tel {
+			font-size: 1.2rem;
+			font-weight: bold;
+			letter-spacing: .1rem;
+		}
+
+		&__date {
+			margin-top: .3rem;
+			font-size: .8rem;
+		}
+
+	} /* End __contacts-cont */
+
+	&__feedback-link {
+		text-transform: uppercase;
+		color: white;
+		font-size: 1rem;
+		margin: 51px 0;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+} /* End .header */
+
+.order-cont.is-right-block {
+	width: 320px;
+}
+
+.order-cont {
+	display: block;
+	width: 430px;
+	height: 100%;
+	font-family: 'Calibri';
+	padding: 2rem 3rem;
+	.flex-cont(column, nowrap, flex-start, flex-start);
+	background-color: rgb(247, 247, 247);
+
+	@media all and (max-width: 1440px) {
+		background-color: transparent;
+		display: none;
+
+		&.is-right-block {
+			display: block;
+		}
+
+	}
+
+	&.is-right-block {
+		
+		@media all and (min-width: 1441px) {
+			display: none;
+		}
+
+	}
+
+	&__share-wrapper {
+
+		&__title {
+			display: block;
+			font-size: 1.3rem;
+		} /* End __title */
+
+		&__icon {
+			display: inline-block;
+			width: 15%;
+			height: 15%;
+			margin-top: 20px;
+			
+			&:not(:first-of-type) {
+				margin-left: 10px;
+			}
+		} /* End __icon */
+
+	} /* End __share-wrapper */
+
+	&__params-cont {
+		.flex-cont(column, nowrap, center, flex-start);
+		margin: 20% 0;
+
+		&__param-cont {
+			.flex-cont(row, wrap, center, center);
+
+			&:not(:first-of-type) {
+				margin-top: 20px;
+			}
+
+			&__icon {
+				display: inline-block;
+				margin-right: 30px;
+				//margin: 0 auto;
+				width: 18%;
+				height: auto;
+			}
+
+			&__title {
+				display: inline-block;
+				color: rgb(71, 71, 71);
+				text-align: left;
+				font-size: 1.1rem;
+			}
+
+		} /* End __param-cont */
+
+	} /* End __params-cont */
+
+	&__price {
+		line-height: 2.5rem;
+		color: rgb(71, 71, 71);
+		font-size: 1.1rem;	
+
+		&_attention {
+			font-size: 2rem;
+			font-weight: bold;
+			color: rgb(0, 96, 34);
+		}
+
+	} /* End __price */
+
+	&__btn-order {
+		display: block;
+		font-size: 1.1rem;
+		margin-top: 40px;
+		padding: 1rem 3rem;
+		background-image: linear-gradient(rgb(0,96,34), rgb(0,96,34)), url('../img/текстура-дерева.png');
+		background-blend-mode: multiply;
+		background-size: auto;
+		background-repeat: no-repeat;
+		background-position: 0 0, 19% 37%;
+		box-shadow: 0 0 25px 0 rgb(150, 150, 150);
+		border: none;
+		color: white;
+	} /* End __btn-order */
+
+	&__description-project {
+		font-size: 1.1rem;
+		margin-top: 40px;
+		color: rgb(71, 71, 71);
+	}
+
+} /* End .order-cont */
+
+
+.projects {
+	display: block;
+	width: 80%;
+	padding: 30px;
+
+	&__link {
+		text-decoration: none;
+		font-size: 14pt;
+		color: rgb(90, 90, 90);
+
+		&:not(:first-of-type)::before {
+			display: inline-block;
+			content: '←';
+			vertical-align: top;
+			margin: 0 5px;
+		}
+
+	}
+
+	&__title {
+		font-size:2.4rem;
+	}
+
+	&__project-cont {
+		width: 100%;
+		.flex-cont(row, nowrap, flex-start, flex-start);
+
+		&__left-column {
+			width: 65%;
+			.flex-cont(column, nowrap, center, center);
+
+			& .carousel {
+				display: block;
+				width: 100%;
+			} /* End carousel */
+
+			& .carousel-main {
+				display: block;
+				position: relative;
+				background-color: lightgray;
+				
+				.carousel-cell {
+					width: 100%;
+					height: 520px;
+					
+				} /* End -cell */
+			
+			}
+
+
+			.carousel-nav {
+				width: 100%;
+				height: auto;
+				margin: 30px;
+				//padding: 20px;
+
+				.carousel-cell {
+					width: 160px;
+					height: 120px;				
+				}
+
+				.carousel-cell.is-selected {
+					transform: scale(2);
+				}
+
+				.flickity-button {
+					background: transparent;
+				}
+
+				.flickity-prev-next-button.previous {
+					left: 0;
+					transform: translate(-50%, -50%);
+				}
+
+				.flickity-prev-next-button.next {
+					right: 0;
+					transform: translate(50%, -50%);
+				}
+
+			} /* End carousel-nav */
+
+		} /* End __left-column */
+
+		&__right-column {
+			margin-left: 50px;
+			
+
+		} /* End __right-column */
+
+	} /* End __project-cont */
+
+	.plane-cont {
+		.flex-cont(row, nowrap, center, center);	
+
+		&__item {
+			position: relative;
+			display: block;
+			width: auto;
+			padding: 20px;
+
+			&__flat {
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size: 1rem;
+			}
+
+		} 
+
+		@media all and (max-width: 1440px) {
+			display: block;
+			
+			&.is-right-block {
+				display: none;
+			}
+
+		}
+
+		@media all and (min-width: 1441px) {
+
+			&.is-right-block {
+				display: block;
+				.flex-cont(row, wrap, center, center);
+			}
+
+			display: none;
+
+		}
+
+	}
+
+	.compare-cont {
+		.flex-cont(row, wrap, space-between, flex-start);
+		width: 100%;
+		margin-top: 40px;
+
+		&__left-column {
+			width: 48%;
+		
+			&__title-wrapper {
+				.flex-cont(row, nowrap, center, center);
+				height: auto;
+				padding: 1rem 2rem;
+				background-color: rgb(240, 240, 240);
+
+				&__title {
+					font-size: 1.3rem;
+					margin-left: 3rem;
+				}
+
+			}
+
+			&__row {
+				text-align: left;
+				color: rgb(90, 90, 90);
+				font-size: 1.3rem;
+				padding: 1rem;
+
+				&:nth-of-type(odd) {
+					background-color: rgb(240, 240, 240);
+				}
+
+			}
+
+			&__price-block {
+				text-align: center;
+				font-size: 2.4rem;
+				color: white;
+				padding: 30px;
+				background-image: linear-gradient(rgba(30, 30, 30, .5), rgba(30, 30, 30, .5)), url('../img/priceBlockLeft.png');
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+
+		}
+
+	}
+
+
+} /* End .projects */

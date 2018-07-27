@@ -23,10 +23,9 @@ gulp.task('less', function() {
 	gulp.src('app/less/*.less')
 	.pipe(less())
 	.pipe(prefixer({
-		browsers: ["last 2 version", " > ie10"],
+		browsers: ["last 20 version"],
 		cascade: true
 	}))
-	.pipe(minify())
 	.pipe(gulp.dest('app/css'))
 	.pipe(browserSync.stream());
 });
