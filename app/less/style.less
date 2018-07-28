@@ -1,7 +1,7 @@
 @import 'normalize.less';
 @import 'mixins.less';
 
-*, *::before, *::after, figure{
+*, *::before, *::after, figure, h1{
 	padding: 0;
 	margin: 0;
 	outline: 0;
@@ -11,14 +11,16 @@
 
 
 body {
+	display: block;
 	font-family: sans-serif;
-	.flex-cont(row,nowrap, flex-start, flex-start);
-	height: 3000px;
+	.flex-cont(row,nowrap, flex-start, stretch);
+	//align-content: stretch;
+	overflow-x: hidden;
 }
 
 .header {
+	display: block;
 	width: 20%;
-	height: 100%;
 	.flex-cont(column, nowrap, flex-start, center);
 	padding: 2rem 0;
 	color: white;
@@ -99,12 +101,11 @@ body {
 }
 
 .order-cont {
-	display: block;
+	.flex-cont(column, nowrap, flex-start, flex-start);
 	width: 430px;
-	height: 100%;
+	align-content: stretch;
 	font-family: 'Calibri';
 	padding: 2rem 3rem;
-	.flex-cont(column, nowrap, flex-start, flex-start);
 	background-color: rgb(247, 247, 247);
 
 	@media all and (max-width: 1440px) {
@@ -113,6 +114,7 @@ body {
 
 		&.is-right-block {
 			display: block;
+			padding: 0 3rem;
 		}
 
 	}
@@ -215,7 +217,7 @@ body {
 .projects {
 	display: block;
 	width: 80%;
-	padding: 30px;
+	padding: 2rem;
 
 	&__link {
 		text-decoration: none;
@@ -233,6 +235,7 @@ body {
 
 	&__title {
 		font-size:2.4rem;
+		margin: 2rem 0;
 	}
 
 	&__project-cont {
@@ -304,25 +307,27 @@ body {
 	} /* End __project-cont */
 
 	.plane-cont {
-		.flex-cont(row, nowrap, center, center);	
-
+		width: 100%;
+		.flex-cont(row, nowrap, center, center);
+		
 		&__item {
 			position: relative;
 			display: block;
-			width: auto;
-			padding: 20px;
+			min-width: 50%;
+			padding: 40px 30px;
 
 			&__flat {
 				position: absolute;
 				top: 0;
 				left: 0;
 				font-size: 1rem;
+				color: rgb(140, 140, 140);
 			}
 
-		} 
+		}
 
 		@media all and (max-width: 1440px) {
-			display: block;
+			display: flex;
 			
 			&.is-right-block {
 				display: none;
@@ -333,8 +338,17 @@ body {
 		@media all and (min-width: 1441px) {
 
 			&.is-right-block {
-				display: block;
-				.flex-cont(row, wrap, center, center);
+				.flex-cont(column, nowrap, center, center);
+			
+				&__item {
+					width: 100%;
+
+					img {
+						width: 100%;
+					}
+
+				}
+
 			}
 
 			display: none;
@@ -349,16 +363,16 @@ body {
 		margin-top: 40px;
 
 		&__left-column {
-			width: 48%;
+			width: 49%;
 		
 			&__title-wrapper {
 				.flex-cont(row, nowrap, center, center);
 				height: auto;
-				padding: 1rem 2rem;
+				padding: .7rem 2.5rem;
 				background-color: rgb(240, 240, 240);
 
 				&__title {
-					font-size: 1.3rem;
+					font-size: 1.2rem;
 					margin-left: 3rem;
 				}
 
@@ -367,8 +381,8 @@ body {
 			&__row {
 				text-align: left;
 				color: rgb(90, 90, 90);
-				font-size: 1.3rem;
-				padding: 1rem;
+				font-size: 1rem;
+				padding: .7rem;
 
 				&:nth-of-type(odd) {
 					background-color: rgb(240, 240, 240);
@@ -378,18 +392,83 @@ body {
 
 			&__price-block {
 				text-align: center;
-				font-size: 2.4rem;
+				font-size: 2.2rem;
 				color: white;
 				padding: 30px;
 				background-image: linear-gradient(rgba(30, 30, 30, .5), rgba(30, 30, 30, .5)), url('../img/priceBlockLeft.png');
 				background-size: 100%;
 				background-repeat: no-repeat;
 				background-position: 50% 50%;
+			} /* End __price-block */
+
+		} /* End __left-column */ 
+
+	} /* End .compare-cont */
+
+	.delivery-block {
+		.flex-cont(column, nowrap, center, center);
+		margin-top: 50px;
+		width: 100%;
+		padding: 2rem;
+		letter-spacing: .1rem;
+		text-align: center;
+		background-color: rgb(240, 240, 240);
+
+		&__title {
+			font-size: 2rem;
+			font-weight: bold;
+			color: rgb(30, 30, 30);
+		}
+
+		&__description {
+			width: 50%;
+			font-size: 1.1rem;
+			margin-top: 2rem;
+			line-height: 1.8rem;
+		}
+
+		&__icon-wrapper {
+			margin-top: 3rem;
+			margin-bottom: 1rem;
+
+			&__icon {
+				margin-right: 2rem;
+			}
+	
+			&__description {
+				margin-top: 3rem;
 			}
 
 		}
 
 	}
 
+	.description-project {
+
+		&__title {
+			display: block;
+			text-align: center;
+			margin: 2rem 0 1rem 0;
+		}
+
+		&__description {
+			display: block;
+			margin: 1rem 0;
+		}		
+
+	}
+
+	.beforeAfterBlock {
+		width: 100%;
+		margin: 40px auto;
+		width: 80%;
+		text-align: center;
+
+		&__image {
+			width: 100%;
+			height: auto;
+		}
+
+	}
 
 } /* End .projects */

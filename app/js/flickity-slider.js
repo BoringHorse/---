@@ -1,7 +1,9 @@
 $(function () {
 
 	var carouselMain = $('.carousel-main'),
-		carouselNav = $('.carousel-nav');
+		carouselNav = $('.carousel-nav'),
+		beforeAfter = $('.beforeAfterBlock'),
+		header = $('.header');
 
 	carouselMain.flickity({
 		pageDots: false,
@@ -17,6 +19,10 @@ $(function () {
 		pageDots: false,
 		draggable: true,
 	});
+
+	//header.css('height', document.body.clientHeight);
+
+	beforeAfter.twentytwenty();
 
 	$('.carousel-cell').each(function() {
 		$(this).css({

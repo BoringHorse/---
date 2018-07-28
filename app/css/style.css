@@ -368,7 +368,8 @@ th {
 *,
 *::before,
 *::after,
-figure {
+figure,
+h1 {
   padding: 0;
   margin: 0;
   outline: 0;
@@ -379,6 +380,7 @@ figure {
   transition: 0.5s ease;
 }
 body {
+  display: block;
   font-family: sans-serif;
   display: -webkit-box;
   display: -webkit-flex;
@@ -393,15 +395,15 @@ body {
   -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  height: 3000px;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  overflow-x: hidden;
 }
 .header {
+  display: block;
   width: 20%;
-  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -492,11 +494,6 @@ body {
   width: 320px;
 }
 .order-cont {
-  display: block;
-  width: 430px;
-  height: 100%;
-  font-family: 'Calibri';
-  padding: 2rem 3rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -514,6 +511,12 @@ body {
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
+  width: 430px;
+  -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+          align-content: stretch;
+  font-family: 'Calibri';
+  padding: 2rem 3rem;
   background-color: #f7f7f7;
   /* End __share-wrapper */
   /* End __params-cont */
@@ -527,6 +530,7 @@ body {
   }
   .order-cont.is-right-block {
     display: block;
+    padding: 0 3rem;
   }
 }
 @media all and (min-width: 1441px) {
@@ -644,8 +648,9 @@ body {
 .projects {
   display: block;
   width: 80%;
-  padding: 30px;
+  padding: 2rem;
   /* End __project-cont */
+  /* End .compare-cont */
 }
 .projects__link {
   text-decoration: none;
@@ -660,6 +665,7 @@ body {
 }
 .projects__title {
   font-size: 2.4rem;
+  margin: 2rem 0;
 }
 .projects__project-cont {
   width: 100%;
@@ -752,6 +758,7 @@ body {
   margin-left: 50px;
 }
 .projects .plane-cont {
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -773,18 +780,22 @@ body {
 .projects .plane-cont__item {
   position: relative;
   display: block;
-  width: auto;
-  padding: 20px;
+  min-width: 50%;
+  padding: 40px 30px;
 }
 .projects .plane-cont__item__flat {
   position: absolute;
   top: 0;
   left: 0;
   font-size: 1rem;
+  color: #8c8c8c;
 }
 @media all and (max-width: 1440px) {
   .projects .plane-cont {
-    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
   }
   .projects .plane-cont.is-right-block {
     display: none;
@@ -795,16 +806,15 @@ body {
     display: none;
   }
   .projects .plane-cont.is-right-block {
-    display: block;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -webkit-flex-flow: row wrap;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
+    -webkit-flex-flow: column nowrap;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -813,6 +823,12 @@ body {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .projects .plane-cont.is-right-block__item {
+    width: 100%;
+  }
+  .projects .plane-cont.is-right-block__item img {
+    width: 100%;
   }
 }
 .projects .compare-cont {
@@ -835,9 +851,11 @@ body {
           align-items: flex-start;
   width: 100%;
   margin-top: 40px;
+  /* End __left-column */
 }
 .projects .compare-cont__left-column {
-  width: 48%;
+  width: 49%;
+  /* End __price-block */
 }
 .projects .compare-cont__left-column__title-wrapper {
   display: -webkit-box;
@@ -858,25 +876,25 @@ body {
       -ms-flex-align: center;
           align-items: center;
   height: auto;
-  padding: 1rem 2rem;
+  padding: 0.7rem 2.5rem;
   background-color: #f0f0f0;
 }
 .projects .compare-cont__left-column__title-wrapper__title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-left: 3rem;
 }
 .projects .compare-cont__left-column__row {
   text-align: left;
   color: #5a5a5a;
-  font-size: 1.3rem;
-  padding: 1rem;
+  font-size: 1rem;
+  padding: 0.7rem;
 }
 .projects .compare-cont__left-column__row:nth-of-type(odd) {
   background-color: #f0f0f0;
 }
 .projects .compare-cont__left-column__price-block {
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   color: white;
   padding: 30px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(30, 30, 30, 0.5)), to(rgba(30, 30, 30, 0.5))), url('../img/priceBlockLeft.png');
@@ -887,5 +905,70 @@ body {
           background-size: 100%;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+}
+.projects .delivery-block {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+  width: 100%;
+  padding: 2rem;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+.projects .delivery-block__title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e1e1e;
+}
+.projects .delivery-block__description {
+  width: 50%;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  line-height: 1.8rem;
+}
+.projects .delivery-block__icon-wrapper {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.projects .delivery-block__icon-wrapper__icon {
+  margin-right: 2rem;
+}
+.projects .delivery-block__icon-wrapper__description {
+  margin-top: 3rem;
+}
+.projects .description-project__title {
+  display: block;
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+}
+.projects .description-project__description {
+  display: block;
+  margin: 1rem 0;
+}
+.projects .beforeAfterBlock {
+  width: 100%;
+  margin: 40px auto;
+  width: 80%;
+  text-align: center;
+}
+.projects .beforeAfterBlock__image {
+  width: 100%;
+  height: auto;
 }
 /* End .projects */

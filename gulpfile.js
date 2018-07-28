@@ -4,7 +4,8 @@ var gulp = require('gulp'),
 	less = require('gulp-less'),
 	minify = require('gulp-clean-css'),
 	rename = require('gulp-rename'),
-	prefixer = require('gulp-autoprefixer');
+	prefixer = require('gulp-autoprefixer'),
+	optimize = require('gulp-image-optimize');
 
 gulp.task('server', function() {
 	browserSync.init({
@@ -18,9 +19,15 @@ gulp.task('server', function() {
 	gulp.watch('app/index.html').on('change', browserSync.reload);
 });
 
+gulp.task('optimizeImage', function() {
+	return gulp.src('app/img/*')
+	.pipe(optimize())
+	.pipe(gulp.dest('app/img/'));
+})
+
 gulp.task('less', function() {
 	console.log('Hello, I have runned!');
-	gulp.src('app/less/*.less')
+	return gulp.src('app/less/*.less')
 	.pipe(less())
 	.pipe(prefixer({
 		browsers: ["last 20 version"],
