@@ -123,7 +123,7 @@ body {
 		list-style: none;
 		margin: 108px 0;
 		&__item {
-			font-size: 1.2rem;
+			font-size: 1rem;
 			text-transform: uppercase;
 			
 			&:not(:first-of-type) {
@@ -196,7 +196,7 @@ body {
 		}
 	}
 
-	@media all and (min-width: 550px) {
+	@media all and (min-width: 551px) {
 
 		&__toggle-menu {
 			position: relative;
@@ -204,31 +204,29 @@ body {
 			order: 1;
 
 			&__menu {
-				width: 100%;
+				width: auto;
 				background: transparent;
-				transform: translate(-250%, 100%);
+				transform: translate(-127%, 80%);
+				background-color: white;
+				transition: .8s ease-in-out;
 
 				&__item {
 					word-break: normal;
-					font-size: 1.2rem;
-					line-height: 2.4rem;
-					color: white;
+					font-size: 1rem;
+					line-height: 2.2rem;
+					color: rgb(50, 50, 50);
 				}
 
 			}
 
 			&__menu_state_active {
-				transform: translate(-10%, 100%);
+				transform: translate(127%, 80%);
 			}
 
 		}
 	}
 
 } /* End .header */
-
-.order-cont.is-right-block {
-	width: 320px;
-}
 
 .order-cont {
 	.flex-cont(column, nowrap, flex-start, flex-start);
@@ -347,6 +345,10 @@ body {
 
 } /* End .order-cont */
 
+
+.order-cont.is-right-block {
+	width: 320px;
+}
 
 .projects {
 	display: block;
@@ -726,30 +728,28 @@ body {
 
 				} /* End __description */
 
-				&__doc-image {
-					display: block;
+				&__wrapper {
+					width: 50%;
 					position: relative;
 
-				} /* End __doc-image */
+					&__doc-image {
+						display: block;
+						width: auto;
+						position: relative;
 
-				&__format {
-					position: absolute;
-					font-size: .8rem;
-					color: white;
-					background-color: #006022;
-					padding: .3rem;
-					bottom: -100%;
-					right: 0;
-					transform: translate(-150%, 0);
-				}
+					} /* End __doc-image */
 
-				&__doc-image::after {
-					content: 'pdf';
-					position: absolute;
-					top: 0;
-					right: 0;
-					transform: translate(100%, 0);
-				}
+					&__format {
+						position: absolute;
+						top: 0;
+						right: 0;
+						font-size: .8rem;
+						color: white;
+						background-color: #006022;
+						padding: .3rem;
+					} /* End __format */
+
+				} /* End __wrapper */
 
 
 				@media all and (max-width: 1440px) {
