@@ -24,7 +24,7 @@ $(function () {
 
 	beforeAfter.twentytwenty();
 
-	$('.carousel-cell').each(function() {
+	$('.carousel-cell, .works-container__row-2__fragment-house').each(function() {
 		$(this).css({
 			backgroundImage: $(this).attr('date-image'),
 			backgroundSize: 'cover',
