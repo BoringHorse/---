@@ -9,6 +9,7 @@
 		"gulp-concat-css": "^3.1.0",
 		"gulp-image-optimize": "0.0.3",
 		"gulp-less": "^4.0.1",
-		"gulp-rename": "^1.4.0"
+		"gulp-rename": "^1.4.0",
+		"gulp-uglify": "^3.0.1"
 	}
 }

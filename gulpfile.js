@@ -5,7 +5,8 @@ var gulp = require('gulp'),
 	minify = require('gulp-clean-css'),
 	rename = require('gulp-rename'),
 	prefixer = require('gulp-autoprefixer'),
-	optimize = require('gulp-image-optimize');
+	optimize = require('gulp-image-optimize'),
+	uglifyy = require('gulp-uglify');
 
 gulp.task('server', function() {
 	browserSync.init({
@@ -33,8 +34,15 @@ gulp.task('less', function() {
 		browsers: ["last 20 version"],
 		cascade: true
 	}))
+	.pipe(minify())
 	.pipe(gulp.dest('app/css'))
 	.pipe(browserSync.stream());
 });
+
+gulp.task('optimizeJS', function() {
+	return gulp.src('dist/js/*.js')
+			.pipe(uglify())
+			.pipe(gulp.dest())
+})
 
 gulp.task('default', ['server']);
